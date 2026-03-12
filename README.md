@@ -44,7 +44,7 @@ PBI_work demostration
 ### **1. 管理參數設定**
 在 Power BI 的「常用」頁籤中，點選 **管理參數 (Manage Parameters)**。我們在此定義了一個名為 `SourcePath` 的文字型參數。
 
-![管理參數視窗截圖](path/to/your/manage_parameters_ui.png)
+![管理參數視窗截圖]([https://github.com/ericschu2022-ai/PBI_work/blob/main/image/%E8%A8%AD%E5%AE%9A1.png)])
 
 ### **2. 動態連結資料來源**
 在 Power Query 編輯器內，我們將「來源」步驟的路徑固定值，改為引用剛剛設定的參數：
