@@ -27,7 +27,7 @@ PBI_work demostration
 * 雙擊開啟 `資料來源版本測試.pbit`。
 * 開啟時，Power BI 會自動跳出 **參數輸入對話框**，詢問您 `Sales_csv.csv` 的儲存路徑。
 
-![步驟2：開啟 PBIT 時的參數輸入視窗](path/to/your/pbit_open_dialog.png)
+![步驟2：開啟 PBIT 時的參數輸入視窗](image/set3.png)
 
 ### **Step 3: 輸入路徑完成轉換**
 * 請複製您電腦中 `Sales_csv.csv` 的 **完整檔案路徑**（包含檔名與副檔名）。
