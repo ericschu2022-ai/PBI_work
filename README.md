@@ -1,9 +1,8 @@
 # PBI_work
 PBI_work demostration 
-
 # 📊 Power BI 資料來源參數化自動轉換專案
 
-這是一個展示如何利用 **Power BI 參數化 (Parameters)** 功能，實現報表與資料來源彈性掛載的範例專案。
+這是一個展示如何利用 **Power BI 參數化 (Parameters)** 功能，實現報表與資料來源彈性掛載的範例專案。透過此設定，使用者無需具備 DAX 或 M Code 基礎，即可輕鬆更新資料路徑。
 
 ---
 
@@ -22,33 +21,36 @@ PBI_work demostration
 
 ### **Step 1: 檔案下載與準備**
 * 下載本倉庫中的 `資料來源版本測試.pbit` 與 `Sales_csv.csv`。
-* 將兩個檔案存放在您電腦中的合適路徑（建議存放在同一個資料夾內）。
+* 將兩個檔案存放在您電腦中的合適路徑。
 
 ### **Step 2: 啟動範本檔**
 * 雙擊開啟 `資料來源版本測試.pbit`。
-* 開啟時，Power BI 會自動跳出**參數輸入對話框**，詢問您 `Sales_csv.csv` 的儲存路徑。
+* 開啟時，Power BI 會自動跳出 **參數輸入對話框**，詢問您 `Sales_csv.csv` 的儲存路徑。
+
+![步驟2：開啟 PBIT 時的參數輸入視窗](path/to/your/pbit_open_dialog.png)
 
 ### **Step 3: 輸入路徑完成轉換**
-* 請複製您電腦中 `Sales_csv.csv` 的**完整檔案路徑**（包含檔名與副檔名）。
+* 請複製您電腦中 `Sales_csv.csv` 的 **完整檔案路徑**（包含檔名與副檔名）。
 * 將路徑貼入輸入框後點擊「載入 (Load)」，報表即會根據該路徑自動完成資料載入。
 
----
-
-## 🛠️ 技術原理說明
-
-本專案的核心技術在於 **Power Query 的參數化管理**，讓報表具備「換個電腦也能跑」的靈活性。
-
-### **設定細節：**
-
-1.  **管理參數：** 在 Power BI 的「常用」頁籤中，點選 **管理參數 (Manage Parameters)**。我們在此預設了一個路徑參數。
-2.  **動態來源設定：** 在 Power Query 編輯器內，我們將「來源」步驟的路徑固定值，改為引用剛剛設定的參數。
-    $$Source = Csv.Document(File.Contents(FilePathParameter))$$
-3.  **靈活應用：** 透過這種方式，使用者無需進入 Power Query 修改代碼，只需在開啟檔案時輸入路徑，即可完成資料源的重新指向。
-
-> [!TIP]
-> **溫馨提醒：** 請務必確認輸入的路徑是否包含引號或多餘空格，正確的路徑格式應如：`C:\Users\Documents\Sales_csv.csv`
+![步驟3：路徑輸入範例](path/to/your/path_input_example.png)
 
 ---
 
-## 📬 聯絡資訊
-如果您對此專案有任何問題或建議，歡迎透過 Issues 與我聯繫！
+## 🛠️ 技術實作細節
+
+本專案的核心在於 **Power Query 的參數化管理**。以下是設定邏輯，供開發者參考：
+
+### **1. 管理參數設定**
+在 Power BI 的「常用」頁籤中，點選 **管理參數 (Manage Parameters)**。我們在此定義了一個名為 `SourcePath` 的文字型參數。
+
+![管理參數視窗截圖](path/to/your/manage_parameters_ui.png)
+
+### **2. 動態連結資料來源**
+在 Power Query 編輯器內，我們將「來源」步驟的路徑固定值，改為引用剛剛設定的參數：
+
+```powerquery
+let
+    Source = Csv.Document(File.Contents(SourcePathParameter),[Delimiter=",", Columns=5, Encoding=65001, QuoteStyle=QuoteStyle.None])
+in
+    Source
