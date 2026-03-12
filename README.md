@@ -33,7 +33,7 @@ PBI_work demostration
 * 請複製您電腦中 `Sales_csv.csv` 的 **完整檔案路徑**（包含檔名與副檔名）。
 * 將路徑貼入輸入框後點擊「載入 (Load)」，報表即會根據該路徑自動完成資料載入。
 
-![步驟3：路徑輸入範例](path/to/your/path_input_example.png)
+![步驟3：路徑輸入範例](https://github.com/ericschu2022-ai/PBI_work/delete/main/image/set1.png)
 
 ---
 
@@ -44,7 +44,7 @@ PBI_work demostration
 ### **1. 管理參數設定**
 在 Power BI 的「常用」頁籤中，點選 **管理參數 (Manage Parameters)**。我們在此定義了一個名為 `SourcePath` 的文字型參數。
 
-![管理參數視窗截圖](path/to/your/manage_parameters_ui.png)
+![管理參數視窗截圖](https://github.com/ericschu2022-ai/PBI_work/delete/main/image/set2.png)
 
 ### **2. 動態連結資料來源**
 在 Power Query 編輯器內，我們將「來源」步驟的路徑固定值，改為引用剛剛設定的參數：
